@@ -14,14 +14,12 @@ func FromWordPairsCsv(words []string) Dict {
 	// Hinweis: Laufen Sie über words und erzeugen Sie für jedes Wortpaar ein Entry-Objekt.
 	// Verwenden Sie dabei den Konstruktor entry.FromWordPairCsv().
 	d := New()
-	//solution:begin
 	for _, w := range words {
 		e := entry.FromWordPairCsv(w)
 		if e.IsValid() {
 			d.Add(e)
 		}
 	}
-	//solution:end
 	return d
 }
 
@@ -32,13 +30,11 @@ func ReadFileLines(filename string) []string {
 	// Beachten Sie, dass Sie dabei eine Fehlerbehandlung benötigen.
 	// Die Funktion os.ReadFile() liefert zwei Werte zurück.
 	// Verwenden Sie strings.Split(), um den Inhalt der Datei in Zeilen zu teilen.
-	//solution:begin
 	file, err := os.ReadFile(filename)
 	if err != nil {
 		return []string{}
 	}
 	return strings.Split(string(file), "\n")
-	//solution:end
 }
 
 // FromFile erzeugt ein neues Wörterbuch aus dem Inhalt einer Datei.
@@ -50,8 +46,6 @@ func ReadFileLines(filename string) []string {
 func FromFile(filename string) Dict {
 	// Hinweis: Lesen Sie den Inhalt der Datei mit ReadFileLines() ein.
 	// Verwenden Sie dann FromWordPairsCsv(), um ein Wörterbuch zu erzeugen.
-	//solution:begin
 	lines := ReadFileLines(filename)
 	return FromWordPairsCsv(lines)
-	//solution:end
 }
