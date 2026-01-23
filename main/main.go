@@ -19,5 +19,9 @@ func main() {
 	fmt.Scanln(&de)
 
 	en := d.Lookup(de)
-	fmt.Printf("Das englische Wort ist: %s\n", en)
+	if en != "" {
+		fmt.Printf("Das englische Wort ist: %s\n", en)
+	} else {
+		fmt.Println("Nicht gefunden")
+	}
 }
